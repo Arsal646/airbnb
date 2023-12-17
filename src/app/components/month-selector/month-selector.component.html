@@ -1,0 +1,39 @@
+<div class="progress-bar-container flex flex-col gap-6 w-full md:w-2/3">
+
+  <div class="plan-heading w-full text-center">
+    <h2>When's your trip?</h2>
+  </div>
+
+  <div class="skill">
+    <div class="outer">
+      <div class="inner">
+        <div id="number"></div>
+      </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300px" height="300px">
+      <defs>
+        <linearGradient id="GradientColor">
+          <stop offset="0%" stop-color="#e01561" />
+          <stop offset="100%" stop-color="#e01561 " />
+        </linearGradient>
+      </defs>
+      <circle id="progressCircle" #progressCircle cx="125" cy="125" r="100" stroke-linecap="round"></circle>
+    </svg>
+
+    <div class="dot-container" #dotsContainer></div>
+
+    <div class="month-container">
+      <div class="month">
+        <h2 #monthSpan>1</h2>
+        <span>Month</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="plan-heading w-full text-center text-sm h-10">
+    <h3 class="text-sm">Starting {{dateObj.monthName}} {{dateObj.day}}, {{dateObj.year}}. <span
+        (click)="openDataCalender()" class="underline text-blue-500 cursor-pointer text-sm"> Edit</span></h3>
+  </div>
+
+</div>

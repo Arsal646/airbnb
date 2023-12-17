@@ -1,0 +1,57 @@
+<div class="nav-card">
+    <!-- Angular Component Template -->
+    <nav
+        class="bg-white flex flex-row-reverse md:flex-row items-center justify-between px-6 py-4 gap-2 max-w-7xl m-auto">
+
+        <!-- Logo -->
+        <a class="hidden md:flex items-center md:flex-1">
+            <img src="https://media.designrush.com/inspiration_images/135187/conversions/_1511452487_364_Airbnb-desktop.jpg"
+                alt="Airbnb" class="h-16">
+        </a>
+
+        <!-- First section -->
+        <div *ngIf="!showSecondSection" class="flex items-center justify-center text-xs md:text-sm :flex-2"
+            (click)="toggleSections()">
+            <div class="relative rounded-full shadow-sm">
+                <button
+                    class="flex items-center justify-between w-full text-gray-700 pl-6 pr-3 py-2 bg-white rounded-full border border-gray-300 hover:shadow focus:outline-none">
+                    <span class="mr-2">Anywhere</span>
+                    <span class="bg-gray-300 " style="width: 1px; height: 24px;"></span>
+                    <span class="mx-2">{{!isTabClick ? 'Any week':getDateString$ | async}}</span>
+                    <span class="bg-gray-300 " style="width: 1px; height: 24px;"></span>
+                    <span class="mx-2 text-zinc-400">Add guests</span>
+                    <span class="ml-2 rounded-full cursor-pointer" (click)="searchHotel()">
+                        <div class="flex p-1 bg-red-500 rounded-full ">
+                            <mat-icon class="text-white">search</mat-icon>
+                        </div>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Second section -->
+        <div *ngIf="showSecondSection" class="flex items-center justify-center flex-col md:flex-2">
+            <div class="flex gap-10">
+                <div class="cursor-pointer hover:underline text-l underline">
+                    Stays
+                </div>
+                <div class="cursor-pointer hover:underline text-l">
+                    Experience
+                </div>
+                <div class="cursor-pointer hover:underline text-l">
+                    Online Experience
+                </div>
+            </div>
+        </div>
+
+        <!-- Hamburger Menu -->
+        <button class="md:flex-1 md:text-right">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </nav>
+
+
+    <ng-container *ngIf="showSecondSection">
+        <app-search-bar></app-search-bar>
+    </ng-container>
+</div>

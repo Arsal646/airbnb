@@ -1,0 +1,40 @@
+<div class="flex bg-gray-100 rounded-full w-full md:w-2/3 m-auto items-center my-2 theme-border text- md:text-sm">
+    <div class="where flex-1 cursor-pointer hover:bg-white custom-shadow rounded-full p-3  pl-6  flex flex-col justify-center "
+        [ngClass]="searchableItemString.where === activeSearchItem ? 'selected':''"
+        (click)="getSelectedItem(searchableItemString.where)">
+        <span>Where</span>
+        <span>Search Destination</span>
+    </div>
+
+    <div class="when flex-1 cursor-pointer hover:bg-white custom-shadow rounded-full p-3  pl-6 flex flex-col justify-center "
+        [ngClass]="searchableItemString.when === activeSearchItem ? 'selected':''"
+        (click)="getSelectedItem(searchableItemString.when)">
+        <span>When</span>
+        <span>{{getDateString$ | async}}</span>
+    </div>
+
+    <div class="who flex-1 cursor-pointer hover:bg-white custom-shadow rounded-full p-3  pl-6  flex justify-between gap-5 items-center"
+        [ngClass]="searchableItemString.guest === activeSearchItem ? 'selected':''"
+        (click)="getSelectedItem(searchableItemString.guest)">
+
+        <div class="flex flex-col">
+            <span>Who</span>
+            <span>Add Guest</span>
+        </div>
+
+        <div (click)="searchHotel()" class="md:flex p-3 md:p-2 theme-background items-center rounded-full text-white ">
+            <mat-icon >search</mat-icon>
+            <span class="hidden md:flex">Search</span>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="searchableItemString.when === activeSearchItem && !isSearchClicked;else noMonth">
+    <app-month-selector></app-month-selector>
+</ng-container>
+
+<ng-template #noMonth>
+    <div class="flex w-full justify-center items-center">
+        <h2>{{message}}</h2>
+    </div>
+</ng-template>

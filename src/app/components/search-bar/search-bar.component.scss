@@ -1,0 +1,23 @@
+.selected{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background: white;
+}
+
+.custom-shadow:hover{
+    background-color: rgba(255, 255, 255, 0.837);
+}
+
+.theme-background {
+    background: #e01561;
+}
+.theme-border{
+    border: 1px solid #8080802b;
+}
+
+.when,.where{
+    height: 70px;
+}
+ 
+.when:hover,.where:hover,.who:hover{
+    background-color: #ebebeb !important;
+}

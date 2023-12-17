@@ -1,0 +1,10 @@
+<div class="date-selector">
+    <div>
+        <mat-calendar [minDate]="nextMonthDate" [selected]="selectedDate" (selectedChange)="onSelect($event)"></mat-calendar>
+    </div>
+    <div class="flex justify-end px-5 py-2">
+        <button (click)="apply()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            Apply
+          </button>
+    </div>
+</div>

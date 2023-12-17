@@ -1,0 +1,13 @@
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4 max-w-7xl m-auto">
+   <ng-container *ngIf="!isLoading">
+    <ng-container *ngFor="let card of hotelList">
+        <app-hotel-list-card/>
+    </ng-container>
+   </ng-container>
+</div>
+
+<div *ngIf="isLoading" class="flex h-2/4 justify-center items-center flex-col-reverse gap-5">
+
+    {{'Loading...'}}
+    <mat-spinner></mat-spinner>
+</div>
